@@ -1,0 +1,7 @@
+{
+  "name": "road-trip-weather",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "road-trip-weather",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
