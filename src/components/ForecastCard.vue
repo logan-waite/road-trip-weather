@@ -13,9 +13,10 @@
 
 <script lang='ts'>
 // Unicode chars for degrees: ℉ ℃ °
-import { IonCard, IonCardContent } from "@ionic/vue";
+import { IonCard, IonCardContent } from '@ionic/vue';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   components: {
     IonCard,
     IonCardContent,
@@ -32,12 +33,12 @@ export default {
     weather: {
       type: String,
       required: true,
-      validator(value: "sun" | "cloud-rain") {
-        return ["sun", "cloud-rain"].includes(value);
+      validator(value: 'sun' | 'cloud-rain') {
+        return ['sun', 'cloud-rain'].includes(value);
       },
     },
   },
-};
+});
 </script>
 
 <style scoped>

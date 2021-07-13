@@ -14,8 +14,11 @@
       </ion-header>
 
       <div id="container">
-        <place-input label="Origin" />
-        <place-input label="Destination" />
+        <place-input label="Origin" @blur="getForecastForLocation" />
+        <place-input
+          label="Destination"
+          @blur="getForecastForLocation($event)"
+        />
         <div class="button-container">
           <ion-button router-link="/forecast" class="forecast-button"
             >Get Trip Forecast</ion-button
@@ -27,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import PlaceInput from "@/components/PlaceInput.vue";
+import PlaceInput from '@/components/PlaceInput.vue';
 import {
   IonContent,
   IonHeader,
@@ -35,11 +38,12 @@ import {
   IonTitle,
   IonToolbar,
   IonButton,
-} from "@ionic/vue";
-import { defineComponent } from "vue";
+} from '@ionic/vue';
+import { defineComponent } from 'vue';
+import { mapActions } from 'vuex';
 
 export default defineComponent({
-  name: "Home",
+  name: 'Home',
   components: {
     IonContent,
     IonHeader,
@@ -48,6 +52,9 @@ export default defineComponent({
     IonToolbar,
     PlaceInput,
     IonButton,
+  },
+  methods: {
+    ...mapActions(['getForecastForLocation']),
   },
 });
 </script>

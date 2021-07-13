@@ -15,9 +15,13 @@
           <ion-title size="large">Trip Forecast</ion-title>
         </ion-toolbar>
       </ion-header>
-
-      <forecast-card city="Salt Lake City" :temperature="100" weather="sun" />
-      <forecast-card city="Asheville" :temperature="69" weather="cloud-rain" />
+      <forecast-card
+        v-for="(location, i) in locations"
+        :key="i" :city="location.name"
+        :temperature="location.forecast.fahrenheit"
+        :weather="'sun'"/>
+      <!-- <forecast-card city="Salt Lake City" :temperature="100" weather="sun" /> -->
+      <!-- <forecast-card city="Asheville" :temperature="69" weather="cloud-rain" /> -->
     </ion-content>
   </ion-page>
 </template>
@@ -31,8 +35,9 @@ import {
   IonBackButton,
   IonTitle,
   IonContent,
-} from "@ionic/vue";
-import ForecastCard from "@/components/ForecastCard.vue";
+} from '@ionic/vue';
+import ForecastCard from '@/components/ForecastCard.vue';
+import { mapState } from 'vuex';
 
 export default {
   components: {
@@ -44,6 +49,9 @@ export default {
     IonTitle,
     IonContent,
     ForecastCard,
+  },
+  computed: {
+    ...mapState(['locations']),
   },
 };
 </script>
