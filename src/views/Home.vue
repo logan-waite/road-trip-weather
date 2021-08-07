@@ -14,8 +14,8 @@
       </ion-header>
 
       <div id="container">
-        <place-input label="Origin" @blur="getForecastForLocation" />
-        <place-input
+        <location-input label="Origin" @blur="getForecastForLocation" />
+        <location-input
           label="Destination"
           @blur="getForecastForLocation($event)"
         />
@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import PlaceInput from '@/components/PlaceInput.vue';
+import LocationInput from '@/components/LocationInput.vue';
 import {
   IonContent,
   IonHeader,
@@ -50,7 +50,7 @@ export default defineComponent({
     IonPage,
     IonTitle,
     IonToolbar,
-    PlaceInput,
+    LocationInput,
     IonButton,
   },
   methods: {
